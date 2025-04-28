@@ -5,7 +5,11 @@ import org.springframework.stereotype.Component;
 
 public class E_IoC_DI {
 
-    // 1. 전동적인 프로그래밍 방식
+    /*
+     * 제어의 역전(IoC) & 의존성 주입(DI)
+     * */
+
+    // 1. 전동적인 자바 프로그래밍 방식
     class Book1 {
         private String title;
 
@@ -55,7 +59,7 @@ public class E_IoC_DI {
         }
     }
 
-    @Component // 해당 클래스를 빈으로 등록!
+    @Component // 해당 클래스를 스프링 빈으로 등록!
     class BookStore2 {
         private Book2 book;
 

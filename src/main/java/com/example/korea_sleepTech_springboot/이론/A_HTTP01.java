@@ -35,6 +35,5 @@ public class A_HTTP01 {
     *   - 상태코드: '어떻게 되었는지' (200 OK, 404 NOT FOUND 등)
     *   - 헤더(Header): 추가 정보 ('응답 데이터 형식' 등)
     *   - 바디(Body): 실제 내용 (HTML 파일, JSON 데이터 등)
-    *
     * */
 }

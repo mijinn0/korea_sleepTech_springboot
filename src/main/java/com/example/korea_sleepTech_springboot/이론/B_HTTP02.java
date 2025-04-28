@@ -4,28 +4,32 @@ public class B_HTTP02 {
     /*
     * cf) 인터넷의 기본 개념
     *   1) IP (Internet Protocol) 주소: 각 장치의 고유 주소
-    *   2) PORT: 하나의 IP에서 다양한 프로그램을 구분
-    *   3) DNS: 도메인 이름 >> IP 주소로 변환
+    *   2) DNS: 도메인 이름 >> IP 주소로 변환
+    *   3) PORT: 하나의 IP에서 다양한 프로그램을 구분
+    *
     *   4) TCP/IP: 신뢰성 있는 데이터 전송을 위한 통신 규약
     *
     *   EX) localhost VS 127.0.0.1
     *   : localhost - 도메인 이름
     *   : 127.0.0.1 - IP 주소 (현재 기기의 로컬 IP 주소, 기기 자체에서만 사용 가능)
     *
+    *   cf) HTTP 기본 포트: 80
+    *       HTTPS 기본 포트: 443
+    *       +) Tomcat은 주로 8080 포트를 사용
     *
     * 1. HTTP 메서드(Methods)
     * : "요청이 어떤 목적을 가지고 있는지" 알려주는 방법
     *
-    * 1) GET
+    * 1) GET(가져오기)
     *   : 서버로 부터 데이터를 가져올 것을 요청
     *
-    * 2) POST
+    * 2) POST(생성하기)
     *   : 서버로 부터 데이터를 저장할 것을 요청
     *
-    * 3) PUT (수정하기)
+    * 3) PUT(수정하기)
     *   : 서버로 부터 데이터를 수정할 것을 요청
     *
-    * 4) DELETE (삭제하기)
+    * 4) DELETE(삭제하기)
     *   : 서버로 부터 데이터를 삭제할 것을 요청
     *
     * EX) BoardController("/board")
@@ -48,6 +52,5 @@ public class B_HTTP02 {
     * 6) 404 Not Found: 요청 자체를 찾을 수 없음 (EX. 해당 하는 요청이 아예 없음)
     *
     * 7) 500 Internal Server Error: 서버 문제 (개발자가 해결할 수 X)
-    *
     * */
 }

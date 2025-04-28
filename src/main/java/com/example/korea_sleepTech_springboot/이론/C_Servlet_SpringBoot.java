@@ -25,7 +25,7 @@ public class C_Servlet_SpringBoot {
     *
     * 스프링부트
     *   : 서블릿을 쉽게 작동하게 해주는 프레임 워크
-    *   - Controller라는 클래스를 만들어서 HTTP 요청을 쉽게 처리
+    *   - Controller 라는 클래스를 만들어서 HTTP 요청을 쉽게 처리
     *
     *   1) HTTP 요청 >> 스프링부트가 자동으로 컨트롤러 메서드로 연결
     *   2) 메서드의 '요청 파라미터'를 받아 처리
