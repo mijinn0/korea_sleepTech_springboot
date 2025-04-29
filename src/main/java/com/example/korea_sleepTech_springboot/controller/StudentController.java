@@ -75,7 +75,7 @@ public class StudentController {
         studentService.deleteStudent(id);
 
         // ResponseEntity
-        // : HTTP 응답 전체(= 상태코드, 헤터, 본문)를 직접 제어해서 클라이언트에게 보내는 객체
+        // : HTTP 응답 전체(= 상태코드, 헤더, 본문)를 직접 제어해서 클라이언트에게 보내는 객체
         // - 데이터를 보다 안전하게 포장해서 전달
         return ResponseEntity.noContent().build();
     }
