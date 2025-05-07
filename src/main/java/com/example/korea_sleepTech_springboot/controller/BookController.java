@@ -33,15 +33,11 @@ public class BookController {
     public ResponseEntity<ResponseDto<BookResponseDto>> createBook(@RequestBody BookCreateRequestDto dto) {
         try {
             ResponseDto<BookResponseDto> book = bookService.createBook(dto);
-
-
+            return ResponseEntity.status(HttpStatus.CREATED).body(book);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
-
-        ResponseDto<BookResponseDto> result = bookService.createBook(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 
     // 2) READ - 전체 책 조회
