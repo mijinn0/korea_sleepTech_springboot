@@ -42,12 +42,14 @@ public class CommentServiceImpl implements CommentService {
         D_Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new EntityNotFoundException("Post not found with id: " + postId));
 
+        // cf) D_Post의 addComment()를 호출하지 않고, 직접적으로 post를 설정하여 양방향 관계를 수동으로 설정
         // 새로운 Comment 생성
         D_Comment newComment = D_Comment.builder()
                 .content(dto.getContent())
                 .commenter(dto.getCommenter())
-                .post(post)
                 .build();
+
+        post.addComment(newComment); // D_Comment가 D_Post에 추가되고 동시에 post 필드가 설정
 
         D_Comment savedComment = commentRepository.save(newComment);
 
@@ -99,7 +101,12 @@ public class CommentServiceImpl implements CommentService {
             throw new IllegalArgumentException("Comment does not belong to the specified Post");
         }
 
+        // == 연관 관계를 해제 == //
+        comment.getPost().removeComment(comment);
+
+        // == DB에서 삭제 == //
         commentRepository.delete(comment);
+
         return ResponseDto.setSuccess(ResponseMessage.SUCCESS, null);
     }
 

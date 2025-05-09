@@ -127,11 +127,21 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public ResponseDto<Void> deletePost(Long id) {
-        if (!postRepository.existsById(id)) {
-            // .existsById(PK값)
-            // : 존재하면 true, 존재하지 않으면 false 반환
-            throw new EntityNotFoundException(ResponseMessage.NOT_EXISTS_POST + id);
-        }
+//        if (!postRepository.existsById(id)) {
+//            // .existsById(PK값)
+//            // : 존재하면 true, 존재하지 않으면 false 반환
+//            throw new EntityNotFoundException(ResponseMessage.NOT_EXISTS_POST + id);
+//        }
+
+        // cf) 게시물 삭제 이전에 모든 댓글에 대해 관계 해제
+        D_Post post = postRepository.findById(id)
+                        .orElseThrow(() -> new EntityNotFoundException(ResponseMessage.NOT_EXISTS_POST + id));
+
+        // cf) 게시물 삭제 이전에 모든 댓글에 대해 관계 해제
+        // 인스턴스 메서드 참조
+        // 기본) 인스턴스명.메서드명();
+        //          forEach(post -> post.removeComment());
+        post.getComments().forEach(post::removeComment);
 
         postRepository.deleteById(id);
 
