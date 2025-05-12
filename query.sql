@@ -74,3 +74,5 @@ CREATE TABLE IF NOT EXISTS users (
     created_at DATETIME NOT NULL,
     updated_at DATETIME
 );
+
+SELECT * FROM users;
