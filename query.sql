@@ -76,3 +76,5 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 SELECT * FROM users;
+
+-- authority(권한) 관련 테이블 --
